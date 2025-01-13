@@ -1,8 +1,18 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import '../styles/bootstrap.min.css'
 import '../styles/style.css'
+import '../styles/feather.css'
+import '../styles/tabler-icons.css'
+import '../styles/daterangepicker.css'
+import '../styles/select2.min.css'
+import '../styles/fontawesome.min.css'
+import '../styles/all.min.css'
+import '../styles/bootstrap-datetimepicker.min.css'
+import '../styles/owl.carousel.min.css'
+import '../styles/owl.theme.default.min.css'
 
 const Header = () => {
   return (
