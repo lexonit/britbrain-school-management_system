@@ -1,7 +1,7 @@
+'use client'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import { useEffect } from 'react'
 import '../styles/bootstrap.min.css'
 import '../styles/style.css'
 import '../styles/feather.css'
@@ -15,6 +15,10 @@ import '../styles/owl.carousel.min.css'
 import '../styles/owl.theme.default.min.css'
 
 const Header = () => {
+  useEffect(() => {
+    require('bootstrap/dist/js/bootstrap.bundle.min.js')
+  }, [])
+
   return (
     <div className='main-wrapper'>
       <div className='header'>
