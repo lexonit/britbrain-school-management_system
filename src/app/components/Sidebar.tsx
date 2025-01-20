@@ -116,43 +116,6 @@ const Sidebar = () => {
               </li>
               <li>
                 <h6 className='submenu-hdr'>
-                  <span>Layout</span>
-                </h6>
-                <ul>
-                  <li>
-                    <a href='layout-default.html'>
-                      <i className='ti ti-layout-sidebar'></i>
-                      <span>Default </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-mini.html'>
-                      <i className='ti ti-layout-align-left'></i>
-                      <span>Mini</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-rtl.html'>
-                      <i className='ti ti-text-direction-rtl'></i>
-                      <span>RTL</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-box.html'>
-                      <i className='ti ti-layout-distribute-vertical'></i>
-                      <span>Box</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-dark.html'>
-                      <i className='ti ti-moon'></i>
-                      <span>Dark</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h6 className='submenu-hdr'>
                   <span>Peoples</span>
                 </h6>
                 <ul>
@@ -238,12 +201,12 @@ const Sidebar = () => {
                   <li className='submenu'>
                     <a href='javascript:void(0);'>
                       <i className='ti ti-school-bell'></i>
-                      <span>classNamees</span>
+                      <span>Classes</span>
                       <span className='menu-arrow'></span>
                     </a>
                     <ul>
                       <li>
-                        <a href='classNamees.html'>All classNamees</a>
+                        <a href='classNamees.html'>All Classes</a>
                       </li>
                       <li>
                         <a href='schedule-classNamees.html'>Schedule</a>
@@ -253,13 +216,13 @@ const Sidebar = () => {
                   <li>
                     <a href='className-room.html'>
                       <i className='ti ti-building'></i>
-                      <span>className Room</span>
+                      <span>Class Room</span>
                     </a>
                   </li>
                   <li>
                     <a href='className-routine.html'>
                       <i className='ti ti-bell-school'></i>
-                      <span>className Routine</span>
+                      <span>Class Routine</span>
                     </a>
                   </li>
                   <li>
@@ -572,7 +535,7 @@ const Sidebar = () => {
                   <li>
                     <a href='className-report.html'>
                       <i className='ti ti-graph'></i>
-                      <span>className Report</span>
+                      <span> Class Report</span>
                     </a>
                   </li>
                   <li>
