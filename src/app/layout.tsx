@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/app/components/Header'
 import Sidebar from './components/Sidebar'
+import AdminDashboard from './components/button/Button'
+import AlertMessage from './components/dashbordcontent/Dashbordcontent'
+ import DashboardCard from './components/pageheader/Headerpage'
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,10 +33,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+
         <Header />
         <Sidebar />
+        <AdminDashboard/>
+        <AlertMessage/>
+       <DashboardCard/>}
+        
+        
         {children}
+        
       </body>
     </html>
-  )
+  );
 }
