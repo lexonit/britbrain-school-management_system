@@ -13,17 +13,13 @@ import '../styles/all.min.css'
 import '../styles/bootstrap-datetimepicker.min.css'
 import '../styles/owl.carousel.min.css'
 import '../styles/owl.theme.default.min.css'
+import Dropdown from './Dropdown'
+import menuItems from '../../../public/menuItems.json'
 
 const Sidebar = () => {
   useEffect(() => {
     require('bootstrap/dist/js/bootstrap.bundle.min.js')
   })
-
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <div className='main-wrapper'>
@@ -59,96 +55,18 @@ const Sidebar = () => {
                   <span>Main</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);' className='subdrop active'>
-                      <i className='ti ti-layout-dashboard'></i>
-                      <span>Dashboard</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='index.html' className='active'>
-                          Admin Dashboard
-                        </a>
-                      </li>
-                      <li>
-                        <a href='teacher-dashboard.html'>Teacher Dashboard</a>
-                      </li>
-                      <li>
-                        <a href='student-dashboard.html'>Student Dashboard</a>
-                      </li>
-                      <li>
-                        <a href='parent-dashboard.html'>Parent Dashboard</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className={`submenu ${isOpen ? 'open' : ''}`}>
-                    <a href='#' onClick={toggleMenu}>
-                      <i className='ti ti-layout-list'></i>
-                      <span>Application</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul style={{ display: isOpen ? 'block' : 'none' }}>
-                      <li>
-                        <a href='chat.html'>Chat</a>
-                      </li>
-                      <li>
-                        <a href='call.html'>Call</a>
-                      </li>
-                      <li>
-                        <a href='calendar.html'>Calendar</a>
-                      </li>
-                      <li>
-                        <a href='email.html'>Email</a>
-                      </li>
-                      <li>
-                        <a href='todo.html'>To Do</a>
-                      </li>
-                      <li>
-                        <a href='notes.html'>Notes</a>
-                      </li>
-                      <li>
-                        <a href='file-manager.html'>File Manager</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h6 className='submenu-hdr'>
-                  <span>Layout</span>
-                </h6>
-                <ul>
-                  <li>
-                    <a href='layout-default.html'>
-                      <i className='ti ti-layout-sidebar'></i>
-                      <span>Default </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-mini.html'>
-                      <i className='ti ti-layout-align-left'></i>
-                      <span>Mini</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-rtl.html'>
-                      <i className='ti ti-text-direction-rtl'></i>
-                      <span>RTL</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-box.html'>
-                      <i className='ti ti-layout-distribute-vertical'></i>
-                      <span>Box</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='layout-dark.html'>
-                      <i className='ti ti-moon'></i>
-                      <span>Dark</span>
-                    </a>
-                  </li>
+                  <Dropdown
+                    title='Dashboard'
+                    menuItems={menuItems.dashboardMenuItems}
+                    icon='ti ti-layout-dashboard'
+                    isInitiallyOpen={true}
+                  />
+                  <Dropdown
+                    title='Application'
+                    menuItems={menuItems.applicationMenuItems}
+                    icon='ti ti-layout-list'
+                    isInitiallyOpen={false}
+                  />
                 </ul>
               </li>
               <li>
@@ -156,78 +74,30 @@ const Sidebar = () => {
                   <span>Peoples</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-school'></i>
-                      <span>Students</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='student-grid.html'>All Students</a>
-                      </li>
-                      <li>
-                        <a href='students.html'>Student List</a>
-                      </li>
-                      <li>
-                        <a href='student-details.html'>Student Details</a>
-                      </li>
-                      <li>
-                        <a href='student-promotion.html'>Student Promotion</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-user-bolt'></i>
-                      <span>Parents</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='parent-grid.html'>All Parents</a>
-                      </li>
-                      <li>
-                        <a href='parents.html'>Parent List</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-user-shield'></i>
-                      <span>Guardians</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='guardian-grid.html'>All Guardians</a>
-                      </li>
-                      <li>
-                        <a href='guardians.html'>Guardian List</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-users'></i>
-                      <span>Teachers</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='teacher-grid.html'>All Teachers</a>
-                      </li>
-                      <li>
-                        <a href='teachers.html'>Teacher List</a>
-                      </li>
-                      <li>
-                        <a href='teacher-details.html'>Teacher Details</a>
-                      </li>
-                      <li>
-                        <a href='routine-teachers.html'>Routine</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Students'
+                    menuItems={menuItems.studentsMenuItems}
+                    icon='ti ti-school'
+                    isInitiallyOpen={false}
+                  />
+                  <Dropdown
+                    title='Parents'
+                    menuItems={menuItems.parentsMenuItems}
+                    icon='ti ti-user-bolt'
+                    isInitiallyOpen={false}
+                  />
+                  <Dropdown
+                    title='Guardians'
+                    menuItems={menuItems.guardiansMenuItems}
+                    icon='ti ti-user-shield'
+                    isInitiallyOpen={false}
+                  />
+                  <Dropdown
+                    title='Teachers'
+                    menuItems={menuItems.teachersMenuItems}
+                    icon='ti ti-users'
+                    isInitiallyOpen={false}
+                  />
                 </ul>
               </li>
               <li>
@@ -235,31 +105,22 @@ const Sidebar = () => {
                   <span>Academic</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-school-bell'></i>
-                      <span>classNamees</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='classNamees.html'>All classNamees</a>
-                      </li>
-                      <li>
-                        <a href='schedule-classNamees.html'>Schedule</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Classes'
+                    menuItems={menuItems.classesMenuItems}
+                    icon='ti ti-school-bell'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                   <li>
                     <a href='className-room.html'>
                       <i className='ti ti-building'></i>
-                      <span>className Room</span>
+                      <span>Class Room</span>
                     </a>
                   </li>
                   <li>
                     <a href='className-routine.html'>
                       <i className='ti ti-bell-school'></i>
-                      <span>className Routine</span>
+                      <span>Class Routine</span>
                     </a>
                   </li>
                   <li>
@@ -292,30 +153,12 @@ const Sidebar = () => {
                       <span>Home Work</span>
                     </a>
                   </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-hexagonal-prism-plus'></i>
-                      <span>Examinations</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='exam.html'>Exam</a>
-                      </li>
-                      <li>
-                        <a href='exam-schedule.html'>Exam Schedule</a>
-                      </li>
-                      <li>
-                        <a href='grade.html'>Grade</a>
-                      </li>
-                      <li>
-                        <a href='exam-attendance.html'>Exam Attendance</a>
-                      </li>
-                      <li>
-                        <a href='exam-results.html'>Exam Results</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Examinations'
+                    menuItems={menuItems.examinationsMenuItems}
+                    icon='ti ti-hexagonal-prism-plus'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                   <li>
                     <a href='academic-reasons.html'>
                       <i className='ti ti-lifebuoy'></i>
@@ -329,51 +172,18 @@ const Sidebar = () => {
                   <span>Management</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-report-money'></i>
-                      <span>Fees Collection</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='fees-group.html'>Fees Group</a>
-                      </li>
-                      <li>
-                        <a href='fees-type.html'>Fees Type</a>
-                      </li>
-                      <li>
-                        <a href='fees-master.html'>Fees Master</a>
-                      </li>
-                      <li>
-                        <a href='fees-assign.html'>Fees Assign</a>
-                      </li>
-                      <li>
-                        <a href='collect-fees.html'>Collect Fees</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-notebook'></i>
-                      <span>Library</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='library-members.html'>Library Members</a>
-                      </li>
-                      <li>
-                        <a href='library-books.html'>Books</a>
-                      </li>
-                      <li>
-                        <a href='library-issue-book.html'>Issue Book</a>
-                      </li>
-                      <li>
-                        <a href='library-return.html'>Return</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Fees Collection'
+                    menuItems={menuItems.feesCollectionMenuItems}
+                    icon='ti ti-report-money'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Library'
+                    menuItems={menuItems.libraryMenuItems}
+                    icon='ti ti-notebook'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                   <li>
                     <a href='sports.html'>
                       <i className='ti ti-run'></i>
@@ -386,52 +196,18 @@ const Sidebar = () => {
                       <span>Players</span>
                     </a>
                   </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-building-fortress'></i>
-                      <span>Hostel</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='hostel-list.html'>Hostel List</a>
-                      </li>
-                      <li>
-                        <a href='hostel-rooms.html'>Hostel Rooms</a>
-                      </li>
-                      <li>
-                        <a href='hostel-room-type.html'>Room Type</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-bus'></i>
-                      <span>Transport</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='transport-routes.html'>Routes</a>
-                      </li>
-                      <li>
-                        <a href='transport-pickup-points.html'>Pickup Points</a>
-                      </li>
-                      <li>
-                        <a href='transport-vehicle-drivers.html'>
-                          Vehicle Drivers
-                        </a>
-                      </li>
-                      <li>
-                        <a href='transport-vehicle.html'>Vehicle</a>
-                      </li>
-                      <li>
-                        <a href='transport-assign-vehicle.html'>
-                          Assign Vehicle
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Hostel'
+                    menuItems={menuItems.hostelMenuItems}
+                    icon='ti ti-building-fortress'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Transport'
+                    menuItems={menuItems.transportMenuItems}
+                    icon='ti ti-bus'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                 </ul>
               </li>
               <li>
@@ -457,39 +233,18 @@ const Sidebar = () => {
                       <span>Designation</span>
                     </a>
                   </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-calendar-share'></i>
-                      <span>Attendance</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='student-attendance.html'>Student Attendance</a>
-                      </li>
-                      <li>
-                        <a href='teacher-attendance.html'>Teacher Attendance</a>
-                      </li>
-                      <li>
-                        <a href='staff-attendance.html'>Staff Attendance</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-calendar-stats'></i>
-                      <span>Leaves</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='list-leaves.html'>List of leaves</a>
-                      </li>
-                      <li>
-                        <a href='approve-request.html'>Approve Request</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Attendance'
+                    menuItems={menuItems.attendanceMenuItems}
+                    icon='ti ti-calendar-share'
+                    isInitiallyOpen={false}
+                  />
+                  <Dropdown
+                    title='Leaves'
+                    menuItems={menuItems.leavesMenuItems}
+                    icon='ti ti-calendar-stats'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                   <li>
                     <a href='holidays.html'>
                       <i className='ti ti-briefcase'></i>
@@ -509,33 +264,12 @@ const Sidebar = () => {
                   <span>Finance & Accounts</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-swipe'></i>
-                      <span>Accounts</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='expenses.html'>Expenses</a>
-                      </li>
-                      <li>
-                        <a href='expenses-category.html'>Expense Category</a>
-                      </li>
-                      <li>
-                        <a href='accounts-income.html'>Income</a>
-                      </li>
-                      <li>
-                        <a href='accounts-invoices.html'>Invoices</a>
-                      </li>
-                      <li>
-                        <a href='invoice.html'>Invoice View</a>
-                      </li>
-                      <li>
-                        <a href='accounts-transactions.html'>Transactions</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Accounts'
+                    menuItems={menuItems.accountsMenuItems}
+                    icon='ti ti-swipe'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                 </ul>
               </li>
 
@@ -572,7 +306,7 @@ const Sidebar = () => {
                   <li>
                     <a href='className-report.html'>
                       <i className='ti ti-graph'></i>
-                      <span>className Report</span>
+                      <span> Class Report</span>
                     </a>
                   </li>
                   <li>
@@ -662,45 +396,18 @@ const Sidebar = () => {
                       <span>Pages</span>
                     </a>
                   </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-brand-blogger'></i>
-                      <span>Blog</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='blog.html'>All Blogs</a>
-                      </li>
-                      <li>
-                        <a href='blog-categories.html'>Categories</a>
-                      </li>
-                      <li>
-                        <a href='blog-comments.html'>Comments</a>
-                      </li>
-                      <li>
-                        <a href='blog-tags.html'>Tags</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-map-pin-search'></i>
-                      <span>Location</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='countries.html'>Countries</a>
-                      </li>
-                      <li>
-                        <a href='states.html'>States</a>
-                      </li>
-                      <li>
-                        <a href='cities.html'>Cities</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Blog'
+                    menuItems={menuItems.blogMenuItems}
+                    icon='ti ti-brand-blogger'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Location'
+                    menuItems={menuItems.locationMenuItems}
+                    icon='ti ti-map-pin-search'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                   <li>
                     <a href='testimonials.html'>
                       <i className='ti ti-quote'></i>
@@ -736,308 +443,52 @@ const Sidebar = () => {
               </li>
               <li>
                 <h6 className='submenu-hdr'>
-                  <span>Pages</span>
-                </h6>
-                <ul>
-                  <li>
-                    <a href='profile.html'>
-                      <i className='ti ti-user'></i>
-                      <span>Profile</span>
-                    </a>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-lock-open'></i>
-                      <span>Authentication</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);' className=''>
-                          Login
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='login.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='login-2.html'>Illustration</a>
-                          </li>
-                          <li>
-                            <a href='login-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);' className=''>
-                          Register
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='register.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='register-2.html'>Illustration</a>
-                          </li>
-                          <li>
-                            <a href='register-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);'>
-                          Forgot Password
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='forgot-password.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='forgot-password-2.html'>Illustration</a>
-                          </li>
-                          <li>
-                            <a href='forgot-password-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);'>
-                          Reset Password
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='reset-password.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='reset-password-2.html'>Illustration</a>
-                          </li>
-                          <li>
-                            <a href='reset-password-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);'>
-                          Email Verification
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='email-verification.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='email-verification-2.html'>Illustration</a>
-                          </li>
-                          <li>
-                            <a href='email-verification-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className='submenu submenu-two'>
-                        <a href='javascript:void(0);'>
-                          2 Step Verification
-                          <span className='menu-arrow inside-submenu'></span>
-                        </a>
-                        <ul>
-                          <li>
-                            <a href='two-step-verification.html'>Cover</a>
-                          </li>
-                          <li>
-                            <a href='two-step-verification-2.html'>
-                              Illustration
-                            </a>
-                          </li>
-                          <li>
-                            <a href='two-step-verification-3.html'>Basic</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href='lock-screen.html'>Lock Screen</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-error-404'></i>
-                      <span>Error Pages</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='404-error.html'>404 Error</a>
-                      </li>
-                      <li>
-                        <a href='500-error.html'>500 Error</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href='blank-page.html'>
-                      <i className='ti ti-brand-nuxt'></i>
-                      <span>Blank Page</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='coming-soon.html'>
-                      <i className='ti ti-file'></i>
-                      <span>Coming Soon</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='under-maintenance.html'>
-                      <i className='ti ti-moon-2'></i>
-                      <span>Under Maintenance</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h6 className='submenu-hdr'>
                   <span>Settings</span>
                 </h6>
                 <ul>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-shield-cog'></i>
-                      <span>General Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='profile-settings.html'>Profile Settings</a>
-                      </li>
-                      <li>
-                        <a href='security-settings.html'>Security Settings</a>
-                      </li>
-                      <li>
-                        <a href='notifications-settings.html'>
-                          Notifications Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a href='connected-apps.html'>Connected Apps</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='General Settings'
+                    menuItems={menuItems.generalSettingsMenuItems}
+                    icon='ti ti-shield-cog'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
 
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-device-laptop'></i>
-                      <span>Website Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='company-settings.html'>Company Settings</a>
-                      </li>
-                      <li>
-                        <a href='localization.html'>Localization</a>
-                      </li>
-                      <li>
-                        <a href='prefixes.html'>Prefixes</a>
-                      </li>
-                      <li>
-                        <a href='preferences.html'>Preferences</a>
-                      </li>
-                      <li>
-                        <a href='social-authentication.html'>
-                          Social Authentication
-                        </a>
-                      </li>
-                      <li>
-                        <a href='language.html'>Language</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-apps'></i>
-                      <span>App Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='invoice-settings.html'>Invoice Settings</a>
-                      </li>
-                      <li>
-                        <a href='custom-fields.html'>Custom Fields</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-file-symlink'></i>
-                      <span>System Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='email-settings.html'>Email Settings</a>
-                      </li>
-                      <li>
-                        <a href='email-templates.html'>Email Templates</a>
-                      </li>
-                      <li>
-                        <a href='sms-settings.html'>SMS Settings</a>
-                      </li>
-                      <li>
-                        <a href='otp-settings.html'>OTP</a>
-                      </li>
-                      <li>
-                        <a href='gdpr-cookies.html'>GDPR Cookies</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-zoom-money'></i>
-                      <span>Financial Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='payment-gateways.html'>Payment Gateways </a>
-                      </li>
-                      <li>
-                        <a href='tax-rates.html'>Tax Rates</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-calendar-repeat'></i>
-                      <span>Academic Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='school-settings.html'>School Settings </a>
-                      </li>
-                      <li>
-                        <a href='religion.html'>Religion</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className='submenu'>
-                    <a href='javascript:void(0);'>
-                      <i className='ti ti-flag-cog'></i>
-                      <span>Other Settings</span>
-                      <span className='menu-arrow'></span>
-                    </a>
-                    <ul>
-                      <li>
-                        <a href='storage.html'>Storage</a>
-                      </li>
-                      <li>
-                        <a href='ban-ip-address.html'>Ban IP Address</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <Dropdown
+                    title='Website Settings'
+                    menuItems={menuItems.websiteSettingsMenuItems}
+                    icon='ti ti-device-laptop'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='App Settings'
+                    menuItems={menuItems.appSettingsMenuItems}
+                    icon='ti ti-apps'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='System Settings'
+                    menuItems={menuItems.systemSettingsMenuItems}
+                    icon='ti ti-file-symlink'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Financial Settings'
+                    menuItems={menuItems.financialSettingsMenuItems}
+                    icon='ti ti-zoom-money'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Academic Settings'
+                    menuItems={menuItems.academicSettingsMenuItems}
+                    icon='ti ti-calendar-repeat'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
+                  <Dropdown
+                    title='Other Settings'
+                    menuItems={menuItems.otherSettingsMenuItems}
+                    icon='ti ti-flag-cog'
+                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                  />
                 </ul>
               </li>
             </ul>
