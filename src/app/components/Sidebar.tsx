@@ -15,6 +15,8 @@ import '../styles/owl.carousel.min.css'
 import '../styles/owl.theme.default.min.css'
 import Dropdown from './Dropdown'
 import menuItems from '../../../public/menuItems.json'
+import SidebarCategory from './SidebarCategory'
+import SidebarMenuItem from './SidebarMenuItem'
 
 const Sidebar = () => {
   useEffect(() => {
@@ -51,9 +53,7 @@ const Sidebar = () => {
             </ul>
             <ul>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Main</span>
-                </h6>
+                <SidebarCategory text='Main' />
                 <ul>
                   <Dropdown
                     title='Dashboard'
@@ -70,9 +70,7 @@ const Sidebar = () => {
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Peoples</span>
-                </h6>
+                <SidebarCategory text='People' />
                 <ul>
                   <Dropdown
                     title='Students'
@@ -101,138 +99,130 @@ const Sidebar = () => {
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Academic</span>
-                </h6>
+                <SidebarCategory text='Academics' />
                 <ul>
                   <Dropdown
                     title='Classes'
                     menuItems={menuItems.classesMenuItems}
                     icon='ti ti-school-bell'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
-                  <li>
-                    <a href='className-room.html'>
-                      <i className='ti ti-building'></i>
-                      <span>Class Room</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-routine.html'>
-                      <i className='ti ti-bell-school'></i>
-                      <span>Class Routine</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-section.html'>
-                      <i className='ti ti-square-rotated-forbid-2'></i>
-                      <span>Section</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-subject.html'>
-                      <i className='ti ti-book'></i>
-                      <span>Subject</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-syllabus.html'>
-                      <i className='ti ti-book-upload'></i>
-                      <span>Syllabus</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-time-table.html'>
-                      <i className='ti ti-table'></i>
-                      <span>Time Table</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-home-work.html'>
-                      <i className='ti ti-license'></i>
-                      <span>Home Work</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='className-room.html'
+                    iconClass='ti ti-building'
+                    text='Class Room'
+                  />
+                  <SidebarMenuItem
+                    href='className-routine.html'
+                    iconClass='ti ti-bell-school'
+                    text='Class Routine'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-section.html'
+                    iconClass='ti ti-square-rotated-forbid-2'
+                    text='Section'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-subject.html'
+                    iconClass='ti ti-book'
+                    text='Subject'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-syllabus.html'
+                    iconClass='ti ti-book-upload'
+                    text='Syllabus'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-time-table.html'
+                    iconClass='ti ti-table'
+                    text='Time Table'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-home-work.html'
+                    iconClass='ti ti-license'
+                    text='Home Work'
+                  />
+
                   <Dropdown
                     title='Examinations'
                     menuItems={menuItems.examinationsMenuItems}
                     icon='ti ti-hexagonal-prism-plus'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
-                  <li>
-                    <a href='academic-reasons.html'>
-                      <i className='ti ti-lifebuoy'></i>
-                      <span>Reasons</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='academic-reasons.html'
+                    iconClass='ti ti-lifebuoy'
+                    text='Reasons'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Management</span>
-                </h6>
+                <SidebarCategory text='Manegment' />
                 <ul>
                   <Dropdown
                     title='Fees Collection'
                     menuItems={menuItems.feesCollectionMenuItems}
                     icon='ti ti-report-money'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Library'
                     menuItems={menuItems.libraryMenuItems}
                     icon='ti ti-notebook'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
-                  <li>
-                    <a href='sports.html'>
-                      <i className='ti ti-run'></i>
-                      <span>Sports</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='players.html'>
-                      <i className='ti ti-play-football'></i>
-                      <span>Players</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='sports.html'
+                    iconClass='ti ti-run'
+                    text='Sports'
+                  />
+
+                  <SidebarMenuItem
+                    href='players.html'
+                    iconClass='ti ti-play-football'
+                    text='Players'
+                  />
+
                   <Dropdown
                     title='Hostel'
                     menuItems={menuItems.hostelMenuItems}
                     icon='ti ti-building-fortress'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Transport'
                     menuItems={menuItems.transportMenuItems}
                     icon='ti ti-bus'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>HRM</span>
-                </h6>
+                <SidebarCategory text='HRM' />
                 <ul>
-                  <li>
-                    <a href='staffs.html'>
-                      <i className='ti ti-users-group'></i>
-                      <span>Staffs</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='departments.html'>
-                      <i className='ti ti-layout-distribute-horizontal'></i>
-                      <span>Departments</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='designation.html'>
-                      <i className='ti ti-user-exclamation'></i>
-                      <span>Designation</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='staffs.html'
+                    iconClass='ti ti-users-group'
+                    text='Staffs'
+                  />
+
+                  <SidebarMenuItem
+                    href='departments.html'
+                    iconClass='ti ti-layout-distribute-horizontal'
+                    text='Departments'
+                  />
+
+                  <SidebarMenuItem
+                    href='designation.html'
+                    iconClass='ti ti-user-exclamation'
+                    text='Designation'
+                  />
+
                   <Dropdown
                     title='Attendance'
                     menuItems={menuItems.attendanceMenuItems}
@@ -243,251 +233,228 @@ const Sidebar = () => {
                     title='Leaves'
                     menuItems={menuItems.leavesMenuItems}
                     icon='ti ti-calendar-stats'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
-                  <li>
-                    <a href='holidays.html'>
-                      <i className='ti ti-briefcase'></i>
-                      <span>Holidays</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='payroll.html'>
-                      <i className='ti ti-moneybag'></i>
-                      <span>Payroll</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='holidays.html'
+                    iconClass='ti ti-briefcase'
+                    text='Holidays'
+                  />
+
+                  <SidebarMenuItem
+                    href='payroll.html'
+                    iconClass='ti ti-moneybag'
+                    text='Payroll'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Finance & Accounts</span>
-                </h6>
+                <SidebarCategory text='Finance & Accounts' />
                 <ul>
                   <Dropdown
                     title='Accounts'
                     menuItems={menuItems.accountsMenuItems}
                     icon='ti ti-swipe'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                 </ul>
               </li>
 
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Announcements</span>
-                </h6>
+                <SidebarCategory text='Announcements' />
                 <ul>
-                  <li>
-                    <a href='notice-board.html'>
-                      <i className='ti ti-clipboard-data'></i>
-                      <span>Notice Board</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='events.html'>
-                      <i className='ti ti-calendar-question'></i>
-                      <span>Events</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='notice-board.html'
+                    iconClass='ti ti-clipboard-data'
+                    text='Notice Board'
+                  />
+
+                  <SidebarMenuItem
+                    href='events.html'
+                    iconClass='ti ti-calendar-question'
+                    text='Events'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Reports</span>
-                </h6>
+                <SidebarCategory text='Reports' />
                 <ul>
-                  <li>
-                    <a href='attendance-report.html'>
-                      <i className='ti ti-calendar-due'></i>
-                      <span>Attendance Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='className-report.html'>
-                      <i className='ti ti-graph'></i>
-                      <span> Class Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='student-report.html'>
-                      <i className='ti ti-chart-infographic'></i>
-                      <span>Student Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='grade-report.html'>
-                      <i className='ti ti-calendar-x'></i>
-                      <span>Grade Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='leave-report.html'>
-                      <i className='ti ti-line'></i>
-                      <span>Leave Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='fees-report.html'>
-                      <i className='ti ti-mask'></i>
-                      <span>Fees Report</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='attendance-report.html'
+                    iconClass='ti ti-calendar-due'
+                    text='Attendance Report'
+                  />
+
+                  <SidebarMenuItem
+                    href='className-report.html'
+                    iconClass='ti ti-graph'
+                    text='Class Report'
+                  />
+
+                  <SidebarMenuItem
+                    href='student-report.html'
+                    iconClass='ti ti-chart-infographic'
+                    text='Student Report'
+                  />
+
+                  <SidebarMenuItem
+                    href='grade-report.html'
+                    iconClass='ti ti-calendar-x'
+                    text='Grade Report'
+                  />
+
+                  <SidebarMenuItem
+                    href='leave-report.html'
+                    iconClass='ti ti-line'
+                    text='Leave Report'
+                  />
+
+                  <SidebarMenuItem
+                    href='fees-report.html'
+                    iconClass='ti ti-mask'
+                    text='Fees Report'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>User Management</span>
-                </h6>
+                <SidebarCategory text='User mangemnent' />
                 <ul>
-                  <li>
-                    <a href='users.html'>
-                      <i className='ti ti-users-minus'></i>
-                      <span>Users</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='roles-permission.html'>
-                      <i className='ti ti-shield-plus'></i>
-                      <span>Roles & Permissions</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='delete-account.html'>
-                      <i className='ti ti-user-question'></i>
-                      <span>Delete Account Request</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='users.html'
+                    iconClass='ti ti-users-minus'
+                    text='Users'
+                  />
+
+                  <SidebarMenuItem
+                    href='roles-permission.html'
+                    iconClass='ti ti-shield-plus'
+                    text='Roles & Permissions'
+                  />
+
+                  <SidebarMenuItem
+                    href='delete-account.html'
+                    iconClass='ti ti-user-question'
+                    text='Delete Account Request'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Membership</span>
-                </h6>
+                <SidebarCategory text='membership' />
                 <ul>
-                  <li>
-                    <a href='membership-plans.html'>
-                      <i className='ti ti-user-plus'></i>
-                      <span>Membership Plans</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='membership-addons.html'>
-                      <i className='ti ti-cone-plus'></i>
-                      <span>Membership Addons</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='membership-transactions.html'>
-                      <i className='ti ti-file-power'></i>
-                      <span>Transactions</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='membership-plans.html'
+                    iconClass='ti ti-user-plus'
+                    text='Membership Plans'
+                  />
+
+                  <SidebarMenuItem
+                    href='membership-addons.html'
+                    iconClass='ti ti-cone-plus'
+                    text='Membership Addons'
+                  />
+
+                  <SidebarMenuItem
+                    href='membership-transactions.html'
+                    iconClass='ti ti-file-power'
+                    text='Transactions'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Content</span>
-                </h6>
+                <SidebarCategory text='content' />
                 <ul>
-                  <li>
-                    <a href='pages.html'>
-                      <i className='ti ti-page-break'></i>
-                      <span>Pages</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='pages.html'
+                    iconClass='ti ti-page-break'
+                    text='Pages'
+                  />
+
                   <Dropdown
                     title='Blog'
                     menuItems={menuItems.blogMenuItems}
                     icon='ti ti-brand-blogger'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Location'
                     menuItems={menuItems.locationMenuItems}
                     icon='ti ti-map-pin-search'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
-                  <li>
-                    <a href='testimonials.html'>
-                      <i className='ti ti-quote'></i>
-                      <span>Testimonials</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='faq.html'>
-                      <i className='ti ti-question-mark'></i>
-                      <span>FAQ</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='testimonials.html'
+                    iconClass='ti ti-quote'
+                    text='Testimonials'
+                  />
+
+                  <SidebarMenuItem
+                    href='faq.html'
+                    iconClass='ti ti-question-mark'
+                    text='FAQ'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Support</span>
-                </h6>
+                <SidebarCategory text='support' />
                 <ul>
-                  <li>
-                    <a href='contact-messages.html'>
-                      <i className='ti ti-message'></i>
-                      <span>Contact Messages</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='tickets.html'>
-                      <i className='ti ti-ticket'></i>
-                      <span>Tickets</span>
-                    </a>
-                  </li>
+                  <SidebarMenuItem
+                    href='contact-messages.html'
+                    iconClass='ti ti-message'
+                    text='Contact Messages'
+                  />
+
+                  <SidebarMenuItem
+                    href='tickets.html'
+                    iconClass='ti ti-ticket'
+                    text='Tickets'
+                  />
                 </ul>
               </li>
               <li>
-                <h6 className='submenu-hdr'>
-                  <span>Settings</span>
-                </h6>
+                <SidebarCategory text='settings' />
                 <ul>
                   <Dropdown
                     title='General Settings'
                     menuItems={menuItems.generalSettingsMenuItems}
                     icon='ti ti-shield-cog'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
 
                   <Dropdown
                     title='Website Settings'
                     menuItems={menuItems.websiteSettingsMenuItems}
                     icon='ti ti-device-laptop'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='App Settings'
                     menuItems={menuItems.appSettingsMenuItems}
                     icon='ti ti-apps'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='System Settings'
                     menuItems={menuItems.systemSettingsMenuItems}
                     icon='ti ti-file-symlink'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Financial Settings'
                     menuItems={menuItems.financialSettingsMenuItems}
                     icon='ti ti-zoom-money'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Academic Settings'
                     menuItems={menuItems.academicSettingsMenuItems}
                     icon='ti ti-calendar-repeat'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                   <Dropdown
                     title='Other Settings'
                     menuItems={menuItems.otherSettingsMenuItems}
                     icon='ti ti-flag-cog'
-                    isInitiallyOpen={false} // Set to `true` if you want it open by default
+                    isInitiallyOpen={false}
                   />
                 </ul>
               </li>
