@@ -8,15 +8,15 @@ interface MenuItem {
 }
 
 interface DropdownProps {
-  title: string
-  menuItems: MenuItem[]
+  title?: string
+  menuItems?: MenuItem[]
   icon?: string
   isInitiallyOpen?: boolean
 }
 
 const Dropdown = ({
-  title,
-  menuItems,
+  title = 'Untitled',
+  menuItems = [],
   icon,
   isInitiallyOpen = false
 }: DropdownProps) => {
