@@ -25,7 +25,7 @@ const Dropdown = ({
   const toggleDropdown = () => setIsOpen(!isOpen)
 
   return (
-    <li className={`submenu ${isOpen ? 'open' : ''}`}>
+    <li className={`submenu ${isOpen ? 'open' : ''}`}>+
       <a
         href='#'
         onClick={e => {

@@ -22,7 +22,8 @@ const Header = () => {
   return (
     <div className='main-wrapper'>
       <div className='header'>
-        <div className='header-left active'>
+
+          <div className='header-left active'>
           <a href='index.html' className='logo logo-normal'>
             <img src='images/logo.png' alt='Logo' />
           </a>
@@ -35,9 +36,9 @@ const Header = () => {
           <a id='toggle_btn' href='javascript:void(0);'>
             <i className='ti ti-menu-deep'></i>
           </a>
-        </div>
+        </div>  
 
-        <a id='mobile_btn' className='mobile_btn' href='#sidebar'>
+           <a id='mobile_btn' className='mobile_btn' href='#sidebar'>
           <span className='bar-icon'>
             <span></span>
             <span></span>
@@ -45,14 +46,14 @@ const Header = () => {
           </span>
         </a>
 
-        <div className='header-user'>
+         <div className='header-user w-10 h-20'>
           <div className='nav user-menu'>
             <div className='nav-item nav-search-inputs me-auto'>
               <div className='top-nav-search'>
                 <a href='javascript:void(0);' className='responsive-search'>
                   <i className='fa fa-search'></i>
                 </a>
-                <form action='#' className='dropdown'>
+                <form action='#' className='dropdown '>
                   <div className='searchinputs' id='dropdownMenuClickable'>
                     <input type='text' placeholder='Search' />
                     <div className='search-addon'>
@@ -61,9 +62,9 @@ const Header = () => {
                       </button>
                     </div>
                   </div>
-                </form>
-              </div>
-            </div>
+                </form> 
+              </div> 
+            </div>  
 
             <div className='d-flex align-items-center'>
               <div className='dropdown me-2'>

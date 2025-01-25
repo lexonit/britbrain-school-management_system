@@ -1,49 +1,35 @@
-'use client'
-import './Button.css'
+'use client';
 
-export default function AdminDashboard() {
-  return (
-    <div className="flex flex-col md:flex-row items-center justify-between mb-3 contners"  >
-      {/* Breadcrumb Section */}
-      <div className='my-auto mb-2'>
-        <h3 className='mb-1 text-2xl font-semibold'>Admin Dashboard</h3>
-        <nav>
-          <ol className='breadcrumb mb-0 flex space-x-2 text-gray-600'>
-            <li className='breadcrumb-item'>
-              <a href='index.html' className='text-blue-500 hover:underline'>
-                Dashboard
-              </a>
-            </li>
-            <li className='breadcrumb-item text-gray-500'>/ Admin Dashboard</li>
-          </ol>
-        </nav>
-      </div>
+import React from 'react';
 
-      {/* Buttons Section */}
-
-      <div className='my-xl-auto flex flex-wrap items-center space-x-3 contentbutton' >
-        {/* Add New Student Button */}
-        <div className='mb-2' >
-          <a
-            href='add-student.html'
-            className='btn-primary flex items-center rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700'
-          >
-            <i className='ti ti-square-rounded-plus mr-2'></i>
-            Add New Student
-          </a>
-        </div>
-
-        {/* Fees Details Button */}
-        <div className='mb-2'> 
-          <a
-            href='collect-fees.html'
-            className='btn-light flex items-center rounded bg-gray-200 px-4 py-2 text-gray-700 transition hover:bg-gray-300'
-          >
-            Fees Details
-          </a>
-        </div>
-      </div>
-
-    </div>
-  );
+interface ButtonProps {
+  title: string;
 }
+
+const Button: React.FC<ButtonProps> = ({ title }) => {
+  return (
+    <button className="btn">
+      {title}
+
+      <style jsx>{`
+        .btn {
+          color: #fff;
+          background-color: #007bff;
+          border-color: #007bff;
+          padding: 10px 18px;
+          font-size: 13px;
+          border-radius: 5px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .btn:hover {
+          background-color: #0056b3;
+          border-color: #0056b3;
+        }
+      `}</style>
+    </button>
+  );
+};
+
+export default Button;
